@@ -4,7 +4,7 @@ const nestedArray1 = [1, 2, [3, 4, [5, 5]]];
 
 const nestedArray2 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10, [11, 12]]]]]];
 
-const maxDepth = (arr, depth = 1) => {
+const maxDepth = (inputArray, depth = 1) => {
   // Initialize a variable to track the maximum depth encountered
   let arrayDepth = depth;
 
@@ -14,7 +14,7 @@ const maxDepth = (arr, depth = 1) => {
    * Recursively call maxDepth to calculate the depth of the nested array
    * Update the arrayDepth if the current depth is greater
    */
-  for (let element of arr) {
+  for (const element of inputArray) {
     if (Array.isArray(element)) {
       const currentDepth = maxDepth(element, depth + 1);
       arrayDepth = Math.max(arrayDepth, currentDepth);
@@ -25,11 +25,11 @@ const maxDepth = (arr, depth = 1) => {
 };
 
 // Function to flatten an array based on its nesting depth
-const flattenArray = (arr) => {
+const flattenArray = (inputArray) => {
   // Get the level on nesting of the array
-  const nestingDepth = maxDepth(arr);
+  const nestingDepth = maxDepth(inputArray);
 
-  return arr.flat(nestingDepth);
+  return inputArray.flat(nestingDepth);
 };
 
 const flattenedArray1 = flattenArray(nestedArray1);
