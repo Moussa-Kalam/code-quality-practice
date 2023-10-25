@@ -24,14 +24,16 @@ const maxDepth = (arr, depth = 1) => {
   return arrayDepth;
 };
 
-// Get the level of nesting of the arrays
-const nestedDepth1 = maxDepth(nestedArray1);
-const nestedDepth2 = maxDepth(nestedArray2);
+// Function to flatten an array based on its nesting depth
+const flattenArray = (arr) => {
+  // Get the level on nesting of the array
+  const nestingDepth = maxDepth(arr);
 
-// Flatten the first array based on its nesting depth
-const flattenedArray1 = nestedArray1.flat(nestedDepth1);
-console.log(flattenedArray1);
+  return arr.flat(nestingDepth);
+};
 
-// Flatten the second array based on its nesting depth
-const flattenedArray2 = nestedArray2.flat(nestedDepth2);
-console.log(flattenedArray2);
+const flattenedArray1 = flattenArray(nestedArray1);
+const flattenedArray2 = flattenArray(nestedArray2);
+
+flattenedArray1;
+flattenedArray2;
