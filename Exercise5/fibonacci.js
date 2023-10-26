@@ -1,12 +1,11 @@
 const calculateFibonacci = (number) => {
-  if (number === 0) return 0;
+  if (number < 2) return number;
 
   // Initialize variables to keep track of Fibonacci elements
-  let element1 = 0, // First Fibonacci element
-    element2 = 1, // Second Fibonacci element
+  let element1 = 0,
+    element2 = 1,
     currentElement; // Variable to calculate and store the current Fibonacci element
 
-  // Loop to calculate the Fibonacci elements up to the given number
   for (let i = 2; i <= number; i++) {
     // Calculate the current Fibonacci element by adding the last two elements
     currentElement = element1 + element2;
@@ -20,3 +19,9 @@ const calculateFibonacci = (number) => {
   return currentElement;
 };
 console.log(calculateFibonacci(10));
+console.log(calculateFibonacci(0));
+console.log(calculateFibonacci(1));
+console.log(calculateFibonacci(2));
+console.log(calculateFibonacci(3));
+console.log(calculateFibonacci(4));
+console.log(calculateFibonacci(6));
