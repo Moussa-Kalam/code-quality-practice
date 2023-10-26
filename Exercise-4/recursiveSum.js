@@ -4,9 +4,9 @@
  */
 
 const recursiveArraySum = (inputArray, index = 0) => {
-  // If the index is equal to the length of the array, return 0.
   if (index === inputArray.length) return 0;
-  // Else add the current element to the sum of the rest of the elements
+
+  // Add the current element to the sum of the rest of the elements
   return inputArray[index] + recursiveArraySum(inputArray, index + 1);
 };
 
