@@ -6,10 +6,13 @@ const toBinary = (input) => {
     throw new Error(
       `Your input is of type ${typeof input}. Please input a number.`
     );
-  return input.toString(2);
+
+  const binary = input.toString(2);
+  return input > 0 ? binary : `1${binary.slice(1)}`;
 };
 
-console.log(toBinary(2));
+console.log(toBinary(12));
+console.log(toBinary(-12));
 console.log(toBinary(7));
 console.log(toBinary(true));
 console.log(toBinary("hello"));
