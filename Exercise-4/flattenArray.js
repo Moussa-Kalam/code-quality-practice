@@ -1,11 +1,10 @@
 // Function that checks the level of nesting of an array and flattens the array into a single-dimension array
 
-const nestedArray1 = [1, 2, [3, 4, [5, 5]]];
+const array1 = [1, 2, [3, 4, [5, 5]]];
 
-const nestedArray2 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10, [11, 12]]]]]];
+const array2 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10, [11, 12]]]]]];
 
-const maxDepth = (inputArray, depth = 1) => {
-  // Initialize a variable to track the maximum depth encountered
+const getArrayDepth = (inputArray, depth = 1) => {
   let arrayDepth = depth;
 
   /**
@@ -16,7 +15,7 @@ const maxDepth = (inputArray, depth = 1) => {
    */
   for (const element of inputArray) {
     if (Array.isArray(element)) {
-      const currentDepth = maxDepth(element, depth + 1);
+      const currentDepth = getArrayDepth(element, depth + 1);
       arrayDepth = Math.max(arrayDepth, currentDepth);
     }
   }
@@ -27,13 +26,10 @@ const maxDepth = (inputArray, depth = 1) => {
 // Function to flatten an array based on its nesting depth
 const flattenArray = (inputArray) => {
   // Get the level on nesting of the array
-  const nestingDepth = maxDepth(inputArray);
+  const nestingDepth = getArrayDepth(inputArray);
 
   return inputArray.flat(nestingDepth);
 };
 
-const flattenedArray1 = flattenArray(nestedArray1);
-const flattenedArray2 = flattenArray(nestedArray2);
-
-flattenedArray1;
-flattenedArray2;
+const flattenedArray1 = flattenArray(array1);
+const flattenedArray2 = flattenArray(array2);
